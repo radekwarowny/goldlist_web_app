@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Term{% endblock %}</h1>
+{% if g.user %}
+
+<a class="action" href="">New</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% for term in terms %}
+<articel class="term">
+	<header>
+		<div>
+			<h1>{{ term['entry_word'] }}</h1>
+
+
+		</div>
+
+
+	</header>
+
+
+</articel>
+{% if not loop.last %}
+
+
+
+{% endif %}
+{% endfor %}
+<articel class="term">
+	<form method="post">
+	<label for="term">Term</label>
+	<input name="term" id="term" required>
+	
+	<input type="submit" value="Register">
+</form>
+
+
+</articel>
+{% endblock %}
